@@ -908,7 +908,7 @@ public abstract class dfControl : MonoBehaviour, IDFControlHost, IComparable<dfC
 
 			// If there is no significant difference between the current size and
 			// the specified size, then just exit without doing anything.
-			if( ( value - size ).sqrMagnitude <= 1f )
+			if( ( value - size ).sqrMagnitude <= 0.1f )
 				return;
 
 			// Assign the new size value
