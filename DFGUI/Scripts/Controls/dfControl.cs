@@ -411,7 +411,9 @@ public abstract class dfControl : MonoBehaviour, IDFControlHost, IComparable<dfC
 
 	#endregion
 
-	#region Private runtime variables 
+   #region Private runtime variables
+
+   private Transform _transform;
 
 	private static object[] signal1 = new object[ 1 ];
 	private static object[] signal2 = new object[ 2 ];
@@ -611,7 +613,11 @@ public abstract class dfControl : MonoBehaviour, IDFControlHost, IComparable<dfC
 
 	#endregion 
 
-	#region Public properties
+   #region Public properties
+
+   public new Transform transform {
+      get { return _transform ?? (_transform = GetComponent<Transform>()); }
+   }
 
 	/// <summary>
 	/// Gets or sets a value indicating whether this control can use Signal() to call event
